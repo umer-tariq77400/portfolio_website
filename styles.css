@@ -144,7 +144,7 @@ RESPONSIVE DESIGN
 ========================= */
 
 /* Mobile Navigation Fixes */
-@media (max-width: 991.98px) {
+@media (max-width: 992px) {
     .navbar-collapse {
         display: none !important;
     }

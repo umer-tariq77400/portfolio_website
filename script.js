@@ -2,58 +2,8 @@
 // Handles mobile navigation and form interactions
 
 document.addEventListener('DOMContentLoaded', function() {
-    initializeNavigation();
     initializeContactForm();
 });
-
-/**
- * Initialize navigation functionality
- * Handles hamburger menu toggle for mobile devices
- */
-function initializeNavigation() {
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-    
-    if (navbarToggler && navbarCollapse) {
-        navbarToggler.addEventListener('click', function() {
-            // Toggle the collapse state
-            const isCollapsed = navbarCollapse.style.display === 'none' || 
-                               navbarCollapse.style.display === '' ||
-                               !navbarCollapse.classList.contains('show');
-            
-            if (isCollapsed) {
-                navbarCollapse.style.display = 'block';
-                navbarCollapse.classList.add('show');
-                navbarToggler.setAttribute('aria-expanded', 'true');
-            } else {
-                navbarCollapse.style.display = 'none';
-                navbarCollapse.classList.remove('show');
-                navbarToggler.setAttribute('aria-expanded', 'false');
-            }
-        });
-        
-        // Close menu when clicking on nav links (mobile)
-        const navLinks = navbarCollapse.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 992) { // Bootstrap lg breakpoint
-                    navbarCollapse.style.display = 'none';
-                    navbarCollapse.classList.remove('show');
-                    navbarToggler.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
-        
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 992) {
-                navbarCollapse.style.display = '';
-                navbarCollapse.classList.remove('show');
-                navbarToggler.setAttribute('aria-expanded', 'false');
-            }
-        });
-    }
-}
 
 /**
  * Initialize contact form functionality
@@ -199,6 +149,5 @@ function isValidEmail(email) {
  * @returns {boolean} True if phone is valid
  */
 function isValidPhone(phone) {
-    const phoneRegex = /^\+92\d{10}$/;
-    return phoneRegex.test(phone);
+    return /^\+92\d{10}$/.test(phone);
 }
