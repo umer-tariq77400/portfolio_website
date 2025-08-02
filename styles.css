@@ -143,6 +143,48 @@ box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
 RESPONSIVE DESIGN
 ========================= */
 
+/* Mobile Navigation Fixes */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        display: none !important;
+    }
+    
+    .navbar-collapse.show {
+        display: block !important;
+    }
+    
+    .navbar-toggler {
+        display: block;
+        border: none;
+        background: transparent;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+    
+    .navbar-nav {
+        flex-direction: column;
+        padding-top: 1rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: none;
+    }
+    
+    .navbar-collapse {
+        display: flex !important;
+    }
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 .navbar-brand {
