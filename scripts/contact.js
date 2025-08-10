@@ -1,5 +1,5 @@
-// Portfolio Website JavaScript Functionality
-// Handles mobile navigation and form interactions
+// Contact page JavaScript
+// Handles contact form validation and submission feedback
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeContactForm();

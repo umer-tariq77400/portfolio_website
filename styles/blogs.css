@@ -1,0 +1,26 @@
+/* Page-specific styles for blogs home page */
+
+.blog-hero {
+  background: linear-gradient(135deg, rgba(31, 96, 194, 0.15), rgba(76, 190, 190, 0.15));
+  border-radius: 1rem;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Hero image sizing */
+.blog-hero-image {
+  max-height: 260px;
+  width: auto;
+  /* Alternative approach: try to mask the checkered pattern */
+  background: transparent;
+  mix-blend-mode: darken;
+  filter: contrast(1.1) brightness(1.1) drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+@media (min-width: 992px) {
+  .blog-hero-image {
+    max-height: 320px;
+  }
+}

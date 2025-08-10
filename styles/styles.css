@@ -67,23 +67,6 @@ box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
 }
 
 /* =========================
-MAIN IMAGE STYLES
-========================= */
-#main_image {
-width: 100%;
-max-width: 300px;
-height: auto;
-border-radius: 50%;
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#main_image:hover {
-transform: scale(1.05);
-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-/* =========================
 CARD ENHANCEMENTS
 ========================= */
 .card {
@@ -261,10 +244,6 @@ font-size: 0.9rem;
 .container {
 padding-left: 15px;
 padding-right: 15px;
-}
-
-#main_image {
-max-width: 250px;
 }
 
 .circle {

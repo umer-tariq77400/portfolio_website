@@ -1,0 +1,62 @@
+/* Achievements page styles */
+
+.achievements-hero {
+  background: linear-gradient(135deg, rgba(31, 96, 194, 0.12), rgba(76, 190, 190, 0.12));
+}
+
+.achievement-hero-image {
+  max-height: 300px;
+  width: auto;
+  /* Remove checkered transparency background completely */
+  background: transparent;
+  mix-blend-mode: darken;
+  filter: contrast(1.1) brightness(1.1) drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+@media (min-width: 992px) {
+  .achievement-hero-image {
+    max-height: 350px;
+  }
+}
+
+.cert-swiper {
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.cert-card {
+  display: grid;
+  place-items: center;
+  gap: .75rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.08);
+  height: 100%;
+  width: 100%;
+}
+
+.cert-card img {
+  max-height: 280px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  border-radius: .5rem;
+  object-fit: contain;
+}
+
+.cert-card figcaption {
+  font-weight: 600;
+  color: var(--bs-primary);
+  text-align: center;
+}
+
+/* Swiper controls theme */
+.cert-swiper .swiper-button-prev,
+.cert-swiper .swiper-button-next {
+  color: var(--bs-primary);
+}
+
+.cert-swiper .swiper-pagination-bullet-active {
+  background: var(--bs-primary);
+}
