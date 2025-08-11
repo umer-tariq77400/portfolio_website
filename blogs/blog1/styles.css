@@ -53,31 +53,3 @@ article h2, article h3 {
     background: transparent;
   }
 }
-
-/* Always show TOC on large screens */
-@media (min-width: 992px) {
-  #tocCollapse {
-    display: block !important;
-    height: auto !important;
-    visibility: visible !important;
-  }
-}
-
-/* Bigger hero image for blog detail page */
-.blog-hero-image {
-  width: 100%;
-  height: auto;
-  max-height: 340px; /* up from global */
-}
-
-@media (min-width: 768px) {
-  .blog-hero-image {
-    max-height: 420px;
-  }
-}
-
-@media (min-width: 992px) {
-  .blog-hero-image {
-    max-height: 520px;
-  }
-}

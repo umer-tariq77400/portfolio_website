@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const article = document.querySelector('#post');
   const tocList = document.querySelector('#tocList');
-  const tocCollapseEl = document.getElementById('tocCollapse');
   if (!article || !tocList) return;
 
   // Collect headings (h2/h3)
@@ -19,39 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Build TOC list
-  tocList.innerHTML = '';
   headings.forEach(h => {
     const li = document.createElement('li');
     li.style.marginLeft = h.tagName === 'H3' ? '1rem' : '0';
+
     const a = document.createElement('a');
     a.href = `#${h.id}`;
     a.textContent = h.textContent;
+    a.setAttribute('role', 'link');
+
     li.appendChild(a);
     tocList.appendChild(li);
   });
 
-  // Smooth-scroll within page and close mobile TOC
-  tocList.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href') || '';
-      if (!href.startsWith('#')) return; // ignore external
-      const target = document.querySelector(href);
-      if (!target) return;
-
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      history.replaceState(null, '', href);
-
-      // Close collapse on mobile
-      if (tocCollapseEl && tocCollapseEl.classList.contains('show') && window.bootstrap?.Collapse) {
-        bootstrap.Collapse.getOrCreateInstance(tocCollapseEl).hide();
-      }
-    });
-  });
-
-  // Active section highlight
+  // Highlight active section with IntersectionObserver
   const links = [...tocList.querySelectorAll('a')];
   const map = new Map(headings.map(h => [h.id, links.find(a => a.getAttribute('href') === `#${h.id}`)]));
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const link = map.get(entry.target.id);
@@ -62,6 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, { rootMargin: '0px 0px -70% 0px', threshold: 0.1 });
+
   headings.forEach(h => io.observe(h));
 });
-

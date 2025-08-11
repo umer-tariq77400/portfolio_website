@@ -3,6 +3,23 @@
 /* =========================
 MAIN IMAGE STYLES (Index page)
 ========================= */
+body {
+    background-image: url('../images/index_background.png');
+    background-size: contain;
+
+}
+
+main {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+main.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 #main_image {
     width: 100%;
     max-width: 300px;
@@ -21,5 +38,9 @@ MAIN IMAGE STYLES (Index page)
 @media (max-width: 575.98px) {
     #main_image {
         max-width: 250px;
+    }
+
+    body {
+        background-image: url('../images/index_background_2.png');
     }
 }
