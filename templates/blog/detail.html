@@ -1,0 +1,126 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block meta_keywords %}{{ post.title }}, {{ post.categories }}, Umer Tariq, blog{% endblock %}
+{% block meta_description %}{{ post.description }}{% endblock %}
+
+{% block title %}{{ post.title }} - Blog | Umer Tariq{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/blog-detail.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<main>
+    <!-- Breadcrumbs -->
+    <nav aria-label="breadcrumb" class="container mt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'blog:list' %}">Blogs</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+        </ol>
+    </nav>
+
+    <!-- Hero -->
+    <header class="container">
+        <div class="p-4 mb-4 bg-white rounded-4 shadow-sm">
+            <div class="row align-items-center g-4">
+                <div class="col-md-5 text-center">
+                    {% if post.cover_image %}
+                    <img class="img-fluid rounded-3 shadow-sm blog-hero-image"
+                        src="{{ post.cover_image.url }}"
+                        alt="{{ post.title }} cover image" />
+                    {% else %}
+                    <img class="img-fluid rounded-3 shadow-sm blog-hero-image"
+                        src="https://via.placeholder.com/600x400?text={{ post.title|slice:':15' }}"
+                        alt="{{ post.title }} cover image" />
+                    {% endif %}
+                </div>
+                <div class="col-md-7">
+                    <h1 class="display-5 text-primary fw-bold mb-4">{{ post.title }}</h1>
+                    <p class="text-secondary mb-2">
+                        <time datetime="{{ post.created_at|date:'Y-m-d' }}">{{ post.created_at|date:"M d, Y" }}</time> • 
+                        <span>{{ post.read_time }} min read</span>
+                    </p>
+                    <p class="lead mb-3">{{ post.description }}</p>
+                    <div class="tags">
+                        {% for category in post.get_categories_list %}
+                        <span class="badge bg-primary me-1">{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <section class="container my-5">
+        <div class="row">
+            <!-- Article -->
+            <div class="col-lg-12">
+                <article id="post" class="bg-white rounded-4 shadow-sm p-4 p-md-5">
+                    {% if post.content %}
+                        {{ post.content|safe }}
+                    {% else %}
+                        <p class="text-muted">Content coming soon...</p>
+                    {% endif %}
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Posts (if any) -->
+    {% if recommended_posts %}
+    <section class="container my-5">
+        <h2 class="h3 text-primary mb-4">Recommended for you</h2>
+        <div class="row g-4">
+            {% for rec_post in recommended_posts %}
+            <div class="col-md-6 col-lg-4">
+                <div class="blog_card">
+                    <div class="upper">
+                        {% if rec_post.cover_image %}
+                        <img src="{{ rec_post.cover_image.url }}" alt="{{ rec_post.title }} cover">
+                        {% else %}
+                        <img src="https://via.placeholder.com/400x250?text={{ rec_post.title|slice:':15' }}" alt="{{ rec_post.title }} cover">
+                        {% endif %}
+                        <div class="read_time"><i class="fa-regular fa-clock"></i> {{ rec_post.read_time }} min</div>
+                    </div>
+                    <div class="lower">
+                        <time class="post-date" datetime="{{ rec_post.created_at|date:'Y-m-d' }}">{{ rec_post.created_at|date:"M d, Y" }}</time>
+                        <h5 class="title">{{ rec_post.title }}</h5>
+                        <p class="description">{{ rec_post.description|truncatewords:10 }}</p>
+                        <div class="tags">
+                            {% for category in rec_post.get_categories_list %}
+                            <span class="tag">{{ category }}</span>
+                            {% endfor %}
+                        </div>
+                        <a href="{% url 'blog:detail' slug=rec_post.slug %}" aria-label="Open {{ rec_post.title }}">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</main>
+
+<!-- JSON-LD Article Schema -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ post.title }}",
+    "author": {
+        "@type": "Person",
+        "name": "Umer Tariq Awan"
+    },
+    "datePublished": "{{ post.created_at|date:'Y-m-d' }}",
+    {% if post.cover_image %}"image": "{{ request.scheme }}://{{ request.get_host }}{{ post.cover_image.url }}",{% endif %}
+    "description": "{{ post.description }}",
+    "mainEntityOfPage": "{{ request.scheme }}://{{ request.get_host }}{% url 'blog:detail' slug=post.slug %}"
+}
+</script>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/blog-detail.js' %}" defer></script>
+{% endblock %}

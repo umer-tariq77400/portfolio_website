@@ -135,6 +135,24 @@ uploads/
 *.sqlite
 *.sqlite3
 *.db
+db.sqlite3
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+*.py[cod]
+*$py.class
+migrations/__pycache__/
+
+# Django media files (development)
+media/
+
+# Django static files (collected)
+staticfiles/
+static_root/
 
 # PM2 process files
 .pm2/

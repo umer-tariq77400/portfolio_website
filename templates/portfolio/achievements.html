@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block meta_keywords %}Umer Tariq, achievements, certificates, web development, IT, HTML, CSS, JavaScript, computer science, student{% endblock %}
+{% block meta_description %}Achievements and certificates of Umer Tariq in web development, IT fundamentals, and computer science{% endblock %}
+
+{% block title %}Achievements - Umer Tariq{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/achievements.css' %}" rel="stylesheet">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+{% endblock %}
+
+{% block content %}
+<!-- Main Content -->
+<main class="container my-5">
+    <!-- Hero -->
+    <section class="achievements-hero p-5 mb-5 rounded-4 shadow-sm">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-3">Achievements</h1>
+                <p class="lead text-secondary mb-0">
+                    A curated collection of my certificates in Web Development and IT.
+                    Explore the highlights below and dive deeper into projects and blogs.
+                </p>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <img src="{% static 'images/achievement_hero.png' %}" alt="Achievement illustration"
+                    class="img-fluid achievement-hero-image rounded-3" onerror="this.style.display='none'" />
+            </div>
+        </div>
+    </section>
+    
+    <!-- Placeholder for achievements content -->
+    <section class="mb-5">
+        <h2 class="h3 text-primary mb-3">Web Development Certificates</h2>
+        <p>Content coming soon...</p>
+    </section>
+    
+    <section class="mb-5">
+        <h2 class="h3 text-primary mb-3">IT Certificates</h2>
+        <p>Content coming soon...</p>
+    </section>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/achievements.js' %}" defer></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+{% endblock %}
