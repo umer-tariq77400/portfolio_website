@@ -1,0 +1,19 @@
+<!-- Hero -->
+<header class="container">
+  <div class="p-4 mb-4 bg-white rounded-4 shadow-sm">
+    <div class="row align-items-center g-4">
+      <div class="col-md-5 text-center">
+        <img class="img-fluid rounded-3 shadow-sm blog-hero-image"
+             src="<%= heroImage %>"
+             alt="<%= title %> cover image" />
+      </div>
+      <div class="col-md-7">
+        <h1 class="display-5 text-primary fw-bold mb-4"><%= title %></h1>
+        <p class="text-secondary mb-2">
+          <time datetime="<%= creationDate %>"><%= creationDateFormatted %></time> • <span><%= readTime %> read</span>
+        </p>
+        <p class="lead mb-0"><%= description %></p>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head', {
+    title: "Getting Started with Linux - Blog | Umer Tariq",
+    keywords: "Linux, tutorial, beginner, Ubuntu, command line, open source",
+    description: "Getting Started with Linux — a beginner-friendly guide to understanding and using Linux effectively.",
+    styles: "stylesheets/styles.css",
+    javascript: "javascripts/script.js"
+  }) %>
+</head>
+
+<body class="bg-light">
+  <!-- Navbar -->
+  <%- include('../partials/navbar.ejs') %>
+
+  <main>
+    <!-- Breadcrumbs -->
+    <%- include('../partials/breadcrumbs', {
+      breadcrumbs: [
+        { name: "Blogs", url: "/blog" },
+        { name: "Getting Started with Linux", url: "" }
+      ]
+    }) %>
+
+    <!-- Hero -->
+    <%- include('../partials/hero', {
+      title: "Getting Started with Linux",
+      heroImage: "/blogs/assets/getting-started-with-linux/images/cover_image.jpg",
+      creationDate: "2025-02-01",
+      creationDateFormatted: "Feb 1, 2025",
+      readTime: "6 min",
+      description: "A beginner-friendly guide to understanding and using the Linux operating system.",
+      categories: ["Linux", "Beginner"]
+    }) %>
+
+    <!-- Content + TOC -->
+    <section class="container">
+      <div class="row">
+        <!-- TOC (left on desktop) -->
+        <%- include('../partials/toc') %>
+
+        <!-- Article (right on desktop) -->
+        <div class="col-lg-8 order-lg-2">
+          <article id="post" class="bg-white rounded-4 shadow-sm p-4 p-md-5">
+            <header class="visually-hidden">
+              <h1>Getting Started with Linux</h1>
+            </header>
+
+            <section>
+              <h2>What is Linux?</h2>
+              <p>Linux is an open-source operating system kernel used across servers, desktops, embedded devices, and more. Popular distributions include Ubuntu, Fedora, and Arch.</p>
+            </section>
+
+            <section>
+              <h2>Why use Linux?</h2>
+              <p>Linux offers performance, security, and flexibility. It’s excellent for development, learning systems, and server administration.</p>
+              <h3>Key benefits</h3>
+              <ul>
+                <li>Open-source and community-driven</li>
+                <li>Powerful command line tooling</li>
+                <li>Stable and secure</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Installing a distribution</h2>
+              <p>You can install Linux alongside Windows (dual-boot) or run it in a virtual machine. Start with Ubuntu LTS for stability.</p>
+            </section>
+
+            <section>
+              <h2>First steps in the terminal</h2>
+              <p>Learn basic commands like cd, ls, cp, mv, rm, mkdir, and man. Package managers (apt, dnf, pacman) help you install software.</p>
+            </section>
+
+            <section>
+              <h2>Next steps</h2>
+              <p>Explore shell scripting, systemd services, and SSH. Consider learning Git for version control and Docker for containers.</p>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section class="container my-5">
+      <h2 class="h3 text-primary mb-4">Recommended for you</h2>
+      <div class="d-flex flex-wrap gap-4 justify-content-center">
+        <div class="blog_card" id="rec-1">
+          <div class="upper">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOhJ5zOm9Gh67ncXWDLH6V9QDu3LL-t9X-dw&s" alt="Blog cover">
+            <div class="read_time"><i class="fa-regular fa-clock"></i> 6 min</div>
+          </div>
+          <div class="lower">
+            <time class="post-date" datetime="2025-02-08">Feb 8, 2025</time>
+            <h5 class="title">Understanding Git Basics</h5>
+            <p class="description">Version control essentials for projects.</p>
+            <div class="tags">
+              <span class="tag">Git</span><span class="tag">VCS</span>
+            </div>
+            <a href="/blogs#post-2" aria-label="Open Understanding Git Basics">Read More</a>
+          </div>
+        </div>
+
+        <div class="blog_card" id="rec-2">
+          <div class="upper">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOhJ5zOm9Gh67ncXWDLH6V9QDu3LL-t9X-dw&s" alt="Blog cover">
+            <div class="read_time"><i class="fa-regular fa-clock"></i> 7 min</div>
+          </div>
+          <div class="lower">
+            <time class="post-date" datetime="2025-02-15">Feb 15, 2025</time>
+            <h5 class="title">Intro to Machine Learning</h5>
+            <p class="description">What ML is and how to start.</p>
+            <div class="tags">
+              <span class="tag">ML</span><span class="tag">Python</span>
+            </div>
+            <a href="/blogs#post-3" aria-label="Open Intro to Machine Learning">Read More</a>
+          </div>
+        </div>
+
+        <div class="blog_card" id="rec-3">
+          <div class="upper">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOhJ5zOm9Gh67ncXWDLH6V9QDu3LL-t9X-dw&s" alt="Blog cover">
+            <div class="read_time"><i class="fa-regular fa-clock"></i> 5 min</div>
+          </div>
+          <div class="lower">
+            <time class="post-date" datetime="2025-01-25">Jan 25, 2025</time>
+            <h5 class="title">Setting Up Ubuntu</h5>
+            <p class="description">Quick setup tips for a smooth start.</p>
+            <div class="tags">
+              <span class="tag">Ubuntu</span><span class="tag">Setup</span>
+            </div>
+            <a href="/blogs#post-1" aria-label="Open Setting Up Ubuntu">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  <!-- JSON-LD Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Getting Started with Linux",
+    "author": {
+      "@type": "Person",
+      "name": "Umer Tariq Awan"
+    },
+    "datePublished": "2025-02-01",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOhJ5zOm9Gh67ncXWDLH6V9QDu3LL-t9X-dw&s",
+    "description": "A beginner-friendly guide to understanding and using Linux effectively.",
+    "mainEntityOfPage": "../../blogs/blog1/"
+  }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+</html>
