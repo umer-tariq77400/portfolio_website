@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head', {
+        title: "Contact",
+        keywords: "Umer Tariq, contact me, get in touch, message, email, number, contact details, reach, student, computer science",
+        description: "Contact page to contact Umer Tariq, a computer science student or get his number and email",
+        styles: "stylesheets/contact.css",
+        javascript: "javascripts/contact.js"
+    }) %>
+</head>
+
+<body class="bg-light">
+    <%- include('../partials/navbar.ejs', { activePage: 'contact' }) %>
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="card-title mb-0 text-center">Get in Touch</h2>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="fname" class="form-label">
+                                        First name <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="fname" name="fname" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lname" class="form-label">Last name</label>
+                                    <input type="text" class="form-control" id="lname" name="lname">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">
+                                        Email <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone"
+                                        placeholder="+921234567890" pattern="^\+92\d{10}$">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">
+                                    Message <span class="text-danger">*</span>
+                                </label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                        <div id="successMessage" class="text-center mt-4" style="display: none;">
+                            <!-- Will be populated with JavaScript based on the server response -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

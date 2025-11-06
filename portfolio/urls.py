@@ -1,0 +1,12 @@
+from django.urls import path
+from . import views
+
+app_name = 'portfolio'
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('achievements/', views.achievements, name='achievements'),
+    path('resume/', views.resume, name='resume'),
+    path('projects/', views.projects, name='projects'),
+    path('contact/', views.contact, name='contact'),
+]

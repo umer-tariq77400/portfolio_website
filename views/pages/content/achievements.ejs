@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head', {
+        title: "Achievements",
+        keywords: "Umer Tariq, achievements, certificates, web development, IT, HTML, CSS, JavaScript, computer science, student",
+        description: "Achievements and certificates of Umer Tariq in web development, IT fundamentals, and computer science",
+        styles: "stylesheets/achievements.css",
+        javascript: "javascripts/achievements.js"
+    }) %>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+</head>
+
+<body class="bg-light">
+    <%- include('../partials/navbar.ejs', { activePage: 'achievements' }) %>
+        <!-- Main Content -->
+        <main class="container my-5">
+            <!-- Hero -->
+            <section class="achievements-hero p-5 mb-5 rounded-4 shadow-sm">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8">
+                        <h1 class="display-4 fw-bold text-primary mb-3">Achievements</h1>
+                        <p class="lead text-secondary mb-0">
+                            A curated collection of my certificates in Web Development and IT.
+                            Explore the highlights below and dive deeper into projects and blogs.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-center text-lg-end">
+                        <img src="#" alt="Achievement illustration"
+                            class="img-fluid achievement-hero-image rounded-3" />
+                    </div>
+                </div>
+            </section> <!-- Web Development Certificates -->
+            <section class="mb-5">
+                <div class="d-flex align-items-baseline justify-content-between flex-wrap mb-3">
+                    <h2 class="h1 text-primary mb-0">Web Development</h2>
+                    <p class="text-muted mb-0">HTML • CSS • JavaScript</p>
+                </div>
+                <div class="swiper cert-swiper" id="webCertsSwiper" aria-label="Web development certificates">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <figure class="cert-card">
+                                <img src="/pages/images/html_essentials.jpg" alt="HTML Essentials certificate"
+                                    loading="lazy" />
+                                <figcaption>HTML Essentials</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure class="cert-card">
+                                <img src="/pages/images/css_essentials.jpg" alt="CSS Essentials certificate"
+                                    loading="lazy" />
+                                <figcaption>CSS Essentials</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure class="cert-card">
+                                <img src="/pages/images/js_essentials.jpg" alt="JavaScript Essentials certificate"
+                                    loading="lazy" />
+                                <figcaption>JavaScript Essentials</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev" aria-label="Previous web certificate"></div>
+                    <div class="swiper-button-next" aria-label="Next web certificate"></div>
+                    <div class="swiper-pagination" aria-hidden="true"></div>
+                </div>
+            </section>
+
+            <!-- IT Certificates -->
+            <section class="mb-5">
+                <div class="d-flex align-items-baseline justify-content-between flex-wrap mb-2">
+                    <h2 class="h1 text-primary mb-0">Information Technology</h2>
+                    <p class="text-muted mb-0">Foundations • OS • Linux • Networking</p>
+                </div>
+                <p class="text-secondary mb-3">
+                    Practical experience with Cisco Packet Tracer for network simulation and
+                    hands-on tinkering with basic electrical circuits using Arduino using TinkerCAD.
+                </p>
+                <div class="swiper cert-swiper" id="itCertsSwiper" aria-label="IT certificates">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <figure class="cert-card">
+                                <img src="/pages/images/IT_fundamentals.jpg" alt="IT Fundamentals certificate"
+                                    loading="lazy" />
+                                <figcaption>IT Fundamentals</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure class="cert-card">
+                                <img src="/pages/images/operating_systems.jpg" alt="Operating Systems certificate"
+                                    loading="lazy" />
+                                <figcaption>Operating Systems</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure class="cert-card">
+                                <img src="/pages/images/linux_essentials.jpg" alt="Linux Essentials certificate"
+                                    loading="lazy" />
+                                <figcaption>Linux Essentials</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure class="cert-card">
+                                <img src="/pages/images/Comp_net.jpg" alt="Computer Networking certificate"
+                                    loading="lazy" />
+                                <figcaption>Computer Networking</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev" aria-label="Previous IT certificate"></div>
+                    <div class="swiper-button-next" aria-label="Next IT certificate"></div>
+                    <div class="swiper-pagination" aria-hidden="true"></div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="text-center mt-5">
+                <div class="p-4 p-md-5 bg-light rounded-4 border">
+                    <h3 class="mb-3">See these skills in action</h3>
+                    <p class="text-secondary mb-4">Check out my projects and read my blogs to learn more about how I
+                        applied these concepts.</p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="project.html" class="btn btn-primary btn-lg px-4">View Projects</a>
+                        <a href="blogs.html" class="btn btn-outline-primary btn-lg px-4">Read Blogs</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

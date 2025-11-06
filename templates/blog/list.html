@@ -1,0 +1,135 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block meta_keywords %}Umer Tariq, blog, blog posts, articles, web development, IT, computer science, student{% endblock %}
+{% block meta_description %}Blog posts by Umer Tariq covering web development, IT fundamentals, and computer science topics{% endblock %}
+
+{% block title %}Blogs - Umer Tariq{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/blog.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!-- Main -->
+<main class="container my-5">
+    <div class="p-5 mb-4 blog-hero shadow-sm">
+        <div class="container py-3">
+            <div class="row align-items-center g-4">
+                <div class="col-md-7">
+                    <h1 class="display-5 fw-bold text-primary mb-3">Blogs</h1>
+                    <p class="fs-5 mb-0">
+                        Welcome to my blog! I write about web development, IT services, networking and Low level computer
+                        concepts. Join me as we explore new technologies and learn together.
+                    </p>
+                </div>
+                <div class="col-md-5 text-center text-md-end">
+                    <img src="{% static 'images/blog_hero.png' %}" alt="Illustration for the blog home hero section"
+                        class="img-fluid blog-hero-image rounded-3" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="searchBox mb-4">
+        <input class="searchInput" type="text" name="" placeholder="Search blogs..." id="search-input">
+        <button class="searchButton" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                <g clip-path="url(#clip0_2_17)">
+                    <g filter="url(#filter0_d_2_17)">
+                        <path
+                            d="M23.7953 23.9182L19.0585 19.1814M19.0585 19.1814C19.8188 18.4211 20.4219 17.5185 20.8333 16.5251C21.2448 15.5318 21.4566 14.4671 21.4566 13.3919C21.4566 12.3167 21.2448 11.252 20.8333 10.2587C20.4219 9.2653 19.8188 8.36271 19.0585 7.60242C18.2982 6.84214 17.3956 6.23905 16.4022 5.82759C15.4089 5.41612 14.3442 5.20435 13.269 5.20435C12.1938 5.20435 11.1291 5.41612 10.1358 5.82759C9.1424 6.23905 8.23981 6.84214 7.47953 7.60242C5.94407 9.13789 5.08145 11.2204 5.08145 13.3919C5.08145 15.5634 5.94407 17.6459 7.47953 19.1814C9.01499 20.7168 11.0975 21.5794 13.269 21.5794C15.4405 21.5794 17.523 20.7168 19.0585 19.1814Z"
+                            stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                            shape-rendering="crispEdges"></path>
+                    </g>
+                </g>
+                <defs>
+                    <filter id="filter0_d_2_17" x="-0.418549" y="3.70435" width="29.7139" height="29.7139"
+                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"></feColorMatrix>
+                        <feOffset dy="4"></feOffset>
+                        <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+                        <feComposite in2="hardAlpha" operator="out"></feComposite>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_17"></feBlend>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_17" result="shape"></feBlend>
+                    </filter>
+                    <clipPath id="clip0_2_17">
+                        <rect width="28.0702" height="28.0702" fill="white" transform="translate(0.403503 0.526367)"></rect>
+                    </clipPath>
+                </defs>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Blog Category Filters -->
+    <div class="blog-filters mb-4">
+        <div class="filter-icon-group">
+            <button class="filter-icon-btn active" data-filter="all" aria-label="Show all blog posts">
+                <i class="fas fa-th-large"></i>
+                <span>All</span>
+            </button>
+            <button class="filter-icon-btn" data-filter="web-development" aria-label="Filter by Web Development">
+                <i class="fas fa-code"></i>
+                <span>Web Dev</span>
+            </button>
+            <button class="filter-icon-btn" data-filter="linux" aria-label="Filter by Linux">
+                <i class="fab fa-linux"></i>
+                <span>Linux</span>
+            </button>
+            <button class="filter-icon-btn" data-filter="networking" aria-label="Filter by Networking">
+                <i class="fas fa-network-wired"></i>
+                <span>Network</span>
+            </button>
+            <button class="filter-icon-btn" data-filter="beginner" aria-label="Filter by Beginner level">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Beginner</span>
+            </button>
+            <button class="filter-icon-btn" data-filter="advanced" aria-label="Filter by Advanced level">
+                <i class="fas fa-rocket"></i>
+                <span>Advanced</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Blog list -->
+    <div class="row g-4" id="blog-list">
+        {% for post in posts %}
+        <div class="col-md-6 col-lg-4">
+            <div class="blog_card" data-categories="{{ post.categories|lower }}">
+                <div class="upper">
+                    {% if post.cover_image %}
+                    <img src="{{ post.cover_image.url }}" alt="{{ post.title }} cover">
+                    {% else %}
+                    <img src="https://via.placeholder.com/400x250?text={{ post.title|slice:':15' }}" alt="{{ post.title }} cover">
+                    {% endif %}
+                    <div class="read_time"><i class="fa-regular fa-clock"></i> {{ post.read_time }} min</div>
+                </div>
+                <div class="lower">
+                    <time class="post-date" datetime="{{ post.created_at|date:'Y-m-d' }}">{{ post.created_at|date:"M d, Y" }}</time>
+                    <h5 class="title">{{ post.title }}</h5>
+                    <p class="description">{{ post.description|truncatewords:15 }}</p>
+                    <div class="tags">
+                        {% for category in post.get_categories_list %}
+                        <span class="tag">{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                    <a href="{% url 'blog:detail' slug=post.slug %}" class="stretched-link" aria-label="Open {{ post.title }}"></a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-center text-muted">No blog posts available yet.</p>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/blog.js' %}" defer></script>
+{% endblock %}

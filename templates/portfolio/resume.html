@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block meta_keywords %}Umer Tariq, resume, cv, curriculum vitae, computer science, student, education, skills, experience{% endblock %}
+{% block meta_description %}Resume of Umer Tariq, a computer science student showcasing education, skills, and experience{% endblock %}
+
+{% block title %}Resume - Umer Tariq{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/resume.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!-- Main Content -->
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h1 class="display-4 mb-2">UMER TARIQ</h1>
+                    <h2 class="h4 mb-0">Computer Science Student</h2>
+                </div>
+                <div class="card-body p-5">
+                    <section class="mb-5">
+                        <h3 class="text-primary border-bottom pb-2 mb-3">PROFILE</h3>
+                        <p class="lead">With a strong foundation in IT, currently being enhanced through CS50 from
+                            Harvard university and IT support from Google, I am eager to bring my knowledge and passion for technology to the industry.
+                            My understanding of Web development, system administration and server administration paired with
+                            my enthusiasm for learning new things, makes me an ideal candidate for the Web development role.</p>
+                    </section>
+
+                    <section class="mb-5">
+                        <h3 class="text-primary border-bottom pb-2 mb-3">EDUCATION</h3>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="card h-100 border-light">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-secondary">BS Computer Science</h5>
+                                        <p class="card-text">Virtual University | 2025 - 2029 (in progress)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mb-5">
+                        <h3 class="text-primary border-bottom pb-2 mb-3">SKILLS</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="text-secondary">Technical Skills</h5>
+                                <ul>
+                                    <li>Web Development (HTML, CSS, JavaScript)</li>
+                                    <li>Python Programming</li>
+                                    <li>C Programming</li>
+                                    <li>SQL Database Management</li>
+                                    <li>Linux/Ubuntu OS</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/resume.js' %}" defer></script>
+{% endblock %}

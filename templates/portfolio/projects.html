@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block meta_keywords %}Umer Tariq, projects, portfolio, web development, computer science, student, programming{% endblock %}
+{% block meta_description %}Projects portfolio of Umer Tariq Awan, showcasing web development and computer science work{% endblock %}
+
+{% block title %}Projects - Umer Tariq{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/projects.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!-- Main Content-->
+<main class="container my-5">
+    <section class="p-5 mb-5 rounded-4 shadow-sm bg-white">
+        <h1 class="display-4 fw-bold text-primary mb-3">Projects</h1>
+        <p class="lead text-secondary mb-0">
+            Explore my portfolio of projects showcasing web development and computer science skills.
+        </p>
+    </section>
+    
+    <section>
+        <p class="text-center text-muted">Projects coming soon...</p>
+    </section>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/projects.js' %}" defer></script>
+{% endblock %}

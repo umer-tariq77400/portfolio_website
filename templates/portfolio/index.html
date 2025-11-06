@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block meta_keywords %}Umer Tariq, Student, Computer science, Portfolio, Homepage{% endblock %}
+{% block meta_description %}Portfolio website of Umer Tariq Awan, a computer science student{% endblock %}
+
+{% block title %}Home - Umer Tariq{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!-- Main Content -->
+<main class="container my-5">
+    <div class="row align-items-center min-vh-75">
+        <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+            <div class="text-center">
+                <img src="{% static 'images/Umer_Tariq.jpg' %}" class="img-fluid rounded-circle shadow-lg"
+                    alt="Picture of Umer Tariq" style="max-width: 400px;">
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-6">
+            <div class="px-lg-4">
+                <h1 class="display-4 fw-bold text-primary mb-4">Umer Tariq</h1>
+                <h2 class="h4 fw-bold mb-4">A bit about me</h2>
+                <p class="fs-5 fw-normal lead mb-4">
+                    I am a Computer science student at virtual university. I am interested in all fields of computer
+                    science. I am interested in learning how mathematics can be applied using computer mainly in AI
+                    and how computer work under to hood.
+                </p>
+                <p class="fs-5 fw-normal lead mb-5">
+                    Some of the area of computer science in which I have experience include using ubuntu OS(desktop and server), Web
+                    development(HTML, CSS and JS), Low level programming using C, Machine learning using python, Database querying
+                    using
+                    SQL. In my spare time I like to learn more
+                    things to
+                    be more productive and diversify my tech stack. I also like to take courses as they enhance my
+                    knowledge a lot. Some of the popular ones that I took include CS50 from harvard university and
+                    Machine learning specialization from stanford university and IT support from Google(in progress).
+                </p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="{% url 'portfolio:contact' %}" class="btn btn-primary btn-lg">Contact Me</a>
+                    <a href="{% url 'portfolio:resume' %}" class="btn btn-outline-primary btn-lg">View Resume</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/index.js' %}" defer></script>
+{% endblock %}
